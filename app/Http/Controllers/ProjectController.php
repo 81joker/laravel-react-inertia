@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
 
         $query = Project::query();
-
+        
         $sortField = request('sort_field', 'created_at');
         $sortDirection = request('sort_direction', 'desc');
         if (request('name')){
