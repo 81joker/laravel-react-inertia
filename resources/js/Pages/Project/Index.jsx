@@ -80,12 +80,6 @@ export default function Project({ projects , queryParams = null}) {
                       >
                         ID
                       </TableHeading>
-                    {/* <th className="py-2 px-3 flex justify-between gap-1 items-center" D
-                      <div>
-                        <ChevronUpIcon className="w-4 h-4 text-gray-500" />
-                        <ChevronDownIcon className="w-4 h-4 text-gray-500" />
-                      </div>
-                    </th> */}
                     <th className="py-2 px-3">Image</th>
                     <TableHeading
                         name="name"
@@ -113,14 +107,16 @@ export default function Project({ projects , queryParams = null}) {
                         Create Date
                       </TableHeading>
 
-                      <TableHeading
+                      {/* <TableHeading
                         name="due_date"
                         sort_field={queryParams.sort_field}
                         sort_direction={queryParams.sort_direction}
                         sortChanged={sortChanged}
                       >
                         Due Date
-                      </TableHeading>                    <th className="py-2 px-3">Created By</th>
+                      </TableHeading>                     */}
+                    <th className="py-2 px-3">Due Date</th>
+                    <th className="py-2 px-3">Created By</th>
                     <th className="py-2 px-3 text-right">Actions</th>
                   </tr>
               
