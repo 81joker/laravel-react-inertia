@@ -7,6 +7,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\DashboardController;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -19,9 +20,8 @@ use App\Http\Controllers\ProjectController;
 Route::redirect('/', '/dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // return Inertia::render('Dashboard');
 
     Route::resource('/task', TaskController::class);
     Route::resource('/project', ProjectController::class);

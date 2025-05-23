@@ -25,7 +25,7 @@ class TaskFactory extends Factory
             'assigned_user_id' => 1,
             'image_path' => "https://picsum.photos/800/600?random={$this->faker->numberBetween(1, 100)}",
             'created_by' => 1,
-            'updated_id' => 1,
+            'updated_by' => 1,
         ];
     }
 }
