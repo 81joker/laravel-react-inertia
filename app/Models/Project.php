@@ -14,20 +14,23 @@ class Project extends Model
     protected $fillable = [
         'name',
         'description',
-        'start_date',
-        'end_date',
+        // 'start_date',
+        // 'end_date',
         'status',
         'image_path',
         'created_by',
         'updated_by',
+        'due_date'
     ];
-    protected $casts = [
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
-    ];
-    protected $attributes = [
-        'status' => 'pending',
-    ];
+        // protected $fillable = ['image_path', 'name', 'description', 'status', 'due_date', 'created_by', 'updated_by'];
+
+    // protected $casts = [
+    //     'start_date' => 'datetime',
+    //     'end_date' => 'datetime',
+    // ];
+    // protected $attributes = [
+    //     'status' => 'pending',
+    // ];
     public function tasks()
     {
         return $this->hasMany(Task::class);
