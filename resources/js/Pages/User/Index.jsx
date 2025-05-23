@@ -2,7 +2,10 @@ import Pagination from "@/Components/Pagination";
 import TextInput from "@/Components/TextInput";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, router } from "@inertiajs/react";
+import { useEffect, useState } from "react";
+
 import TableHeading from "@/Components/TableHeading";
+import FlashMessage from "@/Components/FlashMessage";
 
 export default function Index({ auth, users, queryParams = null, success }) {
   queryParams = queryParams || {};
@@ -43,6 +46,19 @@ export default function Index({ auth, users, queryParams = null, success }) {
     router.delete(route("user.destroy", user.id));
   };
 
+  // Sucess message 
+//   const [showSuccess, setShowSuccess] = useState(!!success);
+
+// useEffect(() => {
+//   if (success) {
+//     const timer = setTimeout(() => {
+//       setShowSuccess(false);
+//     }, 3000); 
+//     return () => clearTimeout(timer);
+//   }
+// }, [success]);
+
+
   return (
     <AuthenticatedLayout
       user={auth.user}
@@ -64,11 +80,9 @@ export default function Index({ auth, users, queryParams = null, success }) {
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          {success && (
-            <div className="bg-emerald-500 py-2 px-4 text-white rounded mb-4">
-              {success}
-            </div>
-          )}
+
+         <FlashMessage message={success} />
+
           <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
             <div className="p-6 text-gray-900 dark:text-gray-100">
               <div className="overflow-auto">
@@ -149,7 +163,7 @@ export default function Index({ auth, users, queryParams = null, success }) {
                         key={user.id}
                       >
                         <td className="px-3 py-2">{user.id}</td>
-                        <th className="px-3 py-2 text-gray-100 text-nowrap">
+                        <th className="px-3 py-2 text-gray-400 text-nowrap">
                           {user.name}
                         </th>
                         <td className="px-3 py-2">{user.email}</td>
