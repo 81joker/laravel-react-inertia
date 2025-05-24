@@ -16,6 +16,17 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
+          $images = [
+            'project/imag1/image1.png',
+            'project/imag2/image2.png',
+            'project/imag3/image3.png',
+            'project/imag4/image4.png',
+            'project/imag5/image5.png',
+            'project/imag6/image6.png',
+            'project/imag7/image7.png',
+            'project/imag8/image8.png',
+            'project/imag9/image9.png',
+            'project/imag10/image10.png'];
         return [
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
@@ -23,7 +34,7 @@ class TaskFactory extends Factory
             'status' => $this->faker->randomElement(['pending', 'in_progress', 'completed']),
             'priority' => $this->faker->randomElement(['low', 'medium', 'high']),
             'assigned_user_id' => 1,
-            'image_path' => "https://picsum.photos/800/600?random={$this->faker->numberBetween(1, 100)}",
+            'image_path' => $this->faker->randomElement($images), 
             'created_by' => 1,
             'updated_by' => 1,
         ];

@@ -27,14 +27,7 @@ class ProjectResource extends JsonResource
             'status' => $this->status,
             'image_path' => $this->image_path ? Storage::url($this->image_path) : '',
             'createdBy' => new UserResource($this->createdBy),
-            'updatedBy' => new UserResource($this->updatedBy),
-            // 'user' => new UserResource($this->whenLoaded('user')),
-            // 'tasks' => TaskResource::collection($this->whenLoaded('tasks')),
-            // 'tasks_count' => $this->whenLoaded('tasks_count'),
-            // 'tasks_completed_count' => $this->whenLoaded('tasks_completed_count'),
-            // 'tasks_incomplete_count' => $this->whenLoaded('tasks_incomplete_count'),
-            // 'tasks_completed_percentage' => $this->whenLoaded('tasks_completed_percentage'),
-    
+            'updatedBy' => new UserResource($this->updatedBy)
         ];
     }
 }
